@@ -2,6 +2,7 @@
 
 echo "debug:"
 ls -al /github/workspace
+ls -al /github/workspace/* 
 
 if [ "$BASE_DIR" -ne "" ]; then
     cd "/github/workspace/$BASE_DIR" || exit

@@ -21,7 +21,7 @@ jobs:
       id: extractKritaImages
       uses: ./main/.github/actions/extractKritaImages
       env:
-        BASE_DIR: main/
+        BASE_DIR: main
     - name: "Upload project to live branch"
       run: |
         rm -Rf live/*
