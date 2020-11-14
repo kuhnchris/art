@@ -44,7 +44,7 @@ for i in "${targetDir}"/*.kra; do
         echo -n "," >>"${targetListJSON}"
     fi
     iName=$(basename "${exportName}")
-    echo "\"${iName}.png\"" >>"${targetListJSON}"
+    echo "\"${iName}\"" >>"${targetListJSON}"
 done
 
 echo -n "]" >>"${targetListJSON}"
