@@ -1,6 +1,6 @@
 #!/bin/sh
 targetDir="/github/workspace/"
-set -v -x
+#set -v -x
 
 if [ "$BASE_DIR" != "" ]; then
     targetDir="/github/workspace/${BASE_DIR}/"
@@ -25,7 +25,7 @@ for i in "${targetDir}"/*.kra; do
     if [ ! -e "$exportName" ]; then
         mkdir .temp
         cd .temp || exit
-        unzip -qq ../"${i}"
+        unzip -qq "${i}"
         if [ -e "mergedimage.png" ]; then
             convert -trim "mergedimage.png" -border 10x10 "$exportName"
             if [ -e "preview.png" ]; then
@@ -48,4 +48,4 @@ done
 
 echo -n "]" >>"${targetListJSON}"
 
-set +v +x
+#set +v +x
