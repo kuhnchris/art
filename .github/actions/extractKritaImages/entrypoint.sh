@@ -43,7 +43,7 @@ for i in "${targetDir}"/*.kra; do
     if [ "${cnt}" -gt "1" ]; then
         echo -n "," >>"${targetListJSON}"
     fi
-    iName=$(basename "${i}")
+    iName=$(basename "${exportName}")
     echo "\"${iName}.png\"" >>"${targetListJSON}"
 done
 
