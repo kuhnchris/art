@@ -1,7 +1,8 @@
 #!/bin/sh
 targetDir="/github/workspace/"
+set -v -x
 
-if [ "$BASE_DIR" -ne "" ]; then
+if [ "$BASE_DIR" != "" ]; then
     targetDir="/github/workspace/${BASE_DIR}/"
 fi
 
@@ -46,3 +47,5 @@ for i in "${targetDir}"/*.kra; do
 done
 
 echo -n "]" >>"${targetListJSON}"
+
+set +v +x
