@@ -19,7 +19,7 @@ jobs:
         path: live
     - name: Convert Art and create index JSON
       id: extractKritaImages
-      uses: ./.github/actions/extractKritaImages
+      uses: ./main/.github/actions/extractKritaImages
       env:
         BASE_DIR: ./main/
     - name: "Upload project to live branch"
