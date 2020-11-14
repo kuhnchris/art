@@ -1,0 +1,36 @@
+name: Conversion & build job(s)
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Coverting & setting live
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: main
+        path: main
+    - uses: actions/checkout@v2
+      with:
+        ref: live
+        path: live
+    - name: Convert Art and create index JSON
+      id: extractKritaImages
+      uses: ./.github/actions/extractKritaImages
+      env:
+        BASE_DIR: ./main/
+    - name: "Upload project to live branch"
+      run: |
+        rm -Rf live/*
+        cp -R main/* live/
+        cd live
+        git config --global user.name "🤖 GitHub Actions"
+        git config --global user.email "beepboop@kuhnchris.eu"
+        git add .
+        git commit -m 'generated and pushed to live'
+        git push
+
+      

@@ -1,0 +1,6 @@
+name: 'convertArt'
+description: 'Executes the shell script to convert Krita files'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: '/entrypoint.sh'
